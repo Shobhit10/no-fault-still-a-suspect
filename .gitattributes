@@ -1,0 +1,5 @@
+# Keep every file byte for byte (no line-ending conversion): the protocol files and frozen
+# thresholds are checked against the SHA-256 values recorded before the live tests.
+* -text
+*.gz binary
+*.png binary

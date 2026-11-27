@@ -1,0 +1,28 @@
+{
+ "description": "Services on the request path of each E4 delay target, used only to classify n-sigma's wrong answers in RQ3 ('caller or callee'). Encoded by the authors after the experiment (post hoc) from the public architecture of each application: callers are the services that send requests that pass through the target (directly or via an intermediate service on the same path), callees are the services the target calls. Databases and caches not exported as ranked services are omitted.",
+ "sources": {
+  "boutique": "Online Boutique v0.10.6 architecture (frontend -> currencyservice, checkoutservice -> currencyservice; frontend -> recommendationservice -> productcatalogservice)",
+  "deathstarbench": "DeathStarBench hotelReservation (frontend -> search -> geo, rate; frontend -> profile, recommendation, user, reservation)",
+  "otel-demo": "OpenTelemetry Demo 3.0.0 (frontend -> recommendation -> product-catalog; frontend, checkout -> product-catalog)",
+  "sock-shop": "Sock Shop (front-end -> catalogue -> catalogue-db; front-end -> carts, orders, user)"
+ },
+ "targets": {
+  "boutique": {
+   "currencyservice": {"callers": ["frontend", "checkoutservice"], "callees": []},
+   "recommendationservice": {"callers": ["frontend"], "callees": ["productcatalogservice"]}
+  },
+  "deathstarbench": {
+   "search": {"callers": ["frontend"], "callees": ["geo", "rate"]},
+   "rate": {"callers": ["search", "frontend"], "callees": []},
+   "frontend": {"callers": [], "callees": ["search", "profile", "recommendation", "user", "reservation"]}
+  },
+  "otel-demo": {
+   "recommendation": {"callers": ["frontend"], "callees": ["product-catalog"]},
+   "product-catalog": {"callers": ["frontend", "recommendation", "checkout"], "callees": []}
+  },
+  "sock-shop": {
+   "catalogue": {"callers": ["front-end"], "callees": ["catalogue-db"]},
+   "front-end": {"callers": [], "callees": ["catalogue", "carts", "orders", "user"]}
+  }
+ }
+}

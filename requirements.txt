@@ -1,0 +1,10 @@
+# Everything in fouroutcome/, reproduce/, tests/ and the live harness (experiments/live/).
+# The paper's reproduction was checked with these pins on Python 3.12.10 (Windows); the original
+# analyses ran with the same numpy/pandas/scipy/scikit-learn versions on Python 3.10.20 (Linux).
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+scikit-learn==1.7.2
+matplotlib==3.10.9
+# Only for experiments/rcaeval/e2_gates.py (reads RCAEval's parquet files).
+pyarrow==19.0.1

@@ -1,0 +1,83 @@
+# Independent user-facing health probe (oracle evidence for the certificate and the impact labels).
+#
+# Runs OUTSIDE the service mesh (no sidecar; the namespace must not be labelled for injection), so
+# its requests never enter the mesh telemetry that the rankers read. One container per application
+# rotates through that application's user-facing endpoints, one request per second, 5-s timeout.
+# Each stdout line is:   <unix_seconds> <endpoint_index> <http_code> <time_total_seconds>
+# (http_code 000 = no response within the timeout). Collect with
+#   kubectl logs -n rca-probe deploy/rca-health-probe -c <application>
+#
+# The endpoints below are those of the paper's five applications in their default namespaces.
+# For DeathStarBench the third endpoint is the application's /user login check with Cornell_0, one
+# of its built-in demo users.
+#   kubectl create namespace rca-probe
+#   kubectl apply -f health_probe.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rca-health-probe
+  namespace: rca-probe
+  labels: {app: rca-health-probe}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: rca-health-probe}
+  template:
+    metadata:
+      labels: {app: rca-health-probe}
+      annotations: {sidecar.istio.io/inject: "false"}
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: boutique
+        image: curlimages/curl:8.10.1
+        env:
+        - {name: URLS, value: "http://frontend.boutique/ http://frontend.boutique/product/OLJCESPC7Z http://frontend.boutique/cart"}
+        command: ["/bin/sh", "-c"]
+        args: &loop
+        - |
+          i=0
+          while true; do
+            n=0
+            for u in $URLS; do
+              if [ "$n" -eq "$i" ]; then url="$u"; fi
+              n=$((n+1))
+            done
+            t=$(date +%s)
+            r=$(curl -s -o /dev/null -m 5 -w '%{http_code} %{time_total}' "$url" 2>/dev/null)
+            [ -z "$r" ] && r="000 5.000000"
+            echo "$t $i $r"
+            i=$(( (i+1) % n ))
+            sleep 1
+          done
+        resources: &res
+          requests: {cpu: 10m, memory: 16Mi}
+          limits: {cpu: 100m, memory: 64Mi}
+      - name: sock-shop
+        image: curlimages/curl:8.10.1
+        env:
+        - {name: URLS, value: "http://front-end.sock-shop/catalogue http://front-end.sock-shop/tags http://front-end.sock-shop/catalogue/size"}
+        command: ["/bin/sh", "-c"]
+        args: *loop
+        resources: *res
+      - name: otel-demo
+        image: curlimages/curl:8.10.1
+        env:
+        - {name: URLS, value: "http://frontend-proxy.otel-demo:8080/api/products http://frontend-proxy.otel-demo:8080/api/recommendations?productIds= http://frontend-proxy.otel-demo:8080/api/products/OLJCESPC7Z"}
+        command: ["/bin/sh", "-c"]
+        args: *loop
+        resources: *res
+      - name: deathstarbench
+        image: curlimages/curl:8.10.1
+        env:
+        - {name: URLS, value: "http://frontend.deathstarbench:5000/hotels?inDate=2015-04-09&outDate=2015-04-10&lat=37.7749&lon=-122.4194 http://frontend.deathstarbench:5000/recommendations?require=dis&lat=38.0235&lon=-122.095 http://frontend.deathstarbench:5000/user?username=Cornell_0&password=0000000000"}
+        command: ["/bin/sh", "-c"]
+        args: *loop
+        resources: *res
+      - name: train-ticket
+        image: curlimages/curl:8.10.1
+        env:
+        - {name: URLS, value: "http://ts-ui-dashboard.train-ticket:8080/api/v1/stationservice/stations http://ts-ui-dashboard.train-ticket:8080/api/v1/trainservice/trains http://ts-ui-dashboard.train-ticket:8080/api/v1/configservice/configs"}
+        command: ["/bin/sh", "-c"]
+        args: *loop
+        resources: *res

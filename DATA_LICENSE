@@ -1,0 +1,27 @@
+Data licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Shobhit Gupta and Suchi Kumari
+
+The data measured and produced by the authors in this repository are licensed under the
+Creative Commons Attribution 4.0 International licence (CC BY 4.0).
+Licence summary: https://creativecommons.org/licenses/by/4.0/
+Full legal code:  https://creativecommons.org/licenses/by/4.0/legalcode
+
+This licence covers everything under data/:
+  - data/windows/**                 (exported telemetry windows of the live tests E3 and E4 and of
+                                     the controlled test)
+  - data/e1/**, data/e3/**, data/e4/**, data/data_only/**, data/rq1/**
+                                    (labels, certificate records, protocols, per-window and per-call
+                                     results, thresholds, injection logs)
+  - data/e2/**                      (the authors' per-call results on the RCAEval benchmark)
+
+You may share and adapt these data for any purpose, provided you give appropriate credit,
+for example by citing the paper (see CITATION.cff), and indicate if changes were made.
+
+Not covered: the RCAEval benchmark telemetry itself is not part of this repository. The files in
+data/e2/ and data/rq1/ that were computed on it name RCAEval cases and metrics; RCAEval is
+published under the MIT licence by its authors (see THIRD_PARTY_NOTICES.md). Obtain the telemetry
+from its public release under its own terms (experiments/rcaeval/README.md).
+
+The code in this repository (Python and shell scripts, Kubernetes manifests) is licensed
+separately under the MIT licence; see LICENSE.

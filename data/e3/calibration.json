@@ -1,0 +1,695 @@
+{
+ "start": 1791353520,
+ "end": 1791355320,
+ "systems": {
+  "boutique": {
+   "expected_families": {
+    "adservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "cartservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "checkoutservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "currencyservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "emailservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "frontend": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "paymentservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "productcatalogservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "recommendationservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "redis-cart": [
+     "cpu",
+     "mem"
+    ],
+    "shippingservice": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ]
+   },
+   "serving": [
+    "adservice",
+    "cartservice",
+    "checkoutservice",
+    "currencyservice",
+    "emailservice",
+    "frontend",
+    "paymentservice",
+    "productcatalogservice",
+    "recommendationservice",
+    "shippingservice"
+   ],
+   "p99_median": {
+    "adservice": 9.150000000000011,
+    "cartservice": 9.686397058823527,
+    "checkoutservice": 49.75,
+    "currencyservice": 9.050000000000004,
+    "emailservice": 4.96,
+    "frontend": 209.1999999999999,
+    "paymentservice": 4.96,
+    "productcatalogservice": 9.59717348927876,
+    "recommendationservice": 24.903348214285714,
+    "shippingservice": 6.599999999999983
+   },
+   "error_ratio": {
+    "adservice": 0.0,
+    "cartservice": 0.0,
+    "checkoutservice": 0.0,
+    "currencyservice": 0.0,
+    "emailservice": 0.0,
+    "frontend": 0.0,
+    "paymentservice": 0.0,
+    "productcatalogservice": 0.0,
+    "recommendationservice": 0.0,
+    "shippingservice": 0.0
+   },
+   "probe": {
+    "requests": 1677,
+    "non2xx": 0,
+    "p95": 0.10570139999999999
+   }
+  },
+  "deathstarbench": {
+   "expected_families": {
+    "frontend": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "geo": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "profile": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "rate": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "recommendation": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "reservation": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "search": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "user": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ]
+   },
+   "serving": [
+    "frontend",
+    "geo",
+    "profile",
+    "rate",
+    "recommendation",
+    "reservation",
+    "search",
+    "user"
+   ],
+   "p99_median": {
+    "frontend": 93.87269230769212,
+    "geo": 52.59999999999903,
+    "profile": 42.52499999999949,
+    "rate": 27.875000000000064,
+    "recommendation": 8.48055555555559,
+    "reservation": 24.20714285714278,
+    "search": 98.18832236842096,
+    "user": 4.909839572192517
+   },
+   "error_ratio": {
+    "frontend": 0.0,
+    "geo": 0.0,
+    "profile": 0.0,
+    "rate": 0.0,
+    "recommendation": 0.0,
+    "reservation": 0.0,
+    "search": 0.0,
+    "user": 0.0
+   },
+   "probe": {
+    "requests": 1728,
+    "non2xx": 0,
+    "p95": 0.05351419999999991
+   }
+  },
+  "otel-demo": {
+   "expected_families": {
+    "ad": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "cart": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "checkout": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "currency": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "email": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "frontend": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "image-provider": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "payment": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "product-catalog": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "quote": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "recommendation": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "shipping": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ]
+   },
+   "serving": [
+    "ad",
+    "cart",
+    "checkout",
+    "currency",
+    "email",
+    "frontend",
+    "image-provider",
+    "payment",
+    "product-catalog",
+    "quote",
+    "recommendation",
+    "shipping"
+   ],
+   "p99_median": {
+    "ad": 46.33333333333333,
+    "cart": 22.533333333333346,
+    "checkout": 957.9166666666665,
+    "currency": 3.8399999999999954,
+    "email": 24.5875,
+    "frontend": 232.5,
+    "image-provider": 0.9700000000000001,
+    "payment": 4.924222222222223,
+    "product-catalog": 86.48529411764704,
+    "quote": 939.9999999999997,
+    "recommendation": 24.669924812030075,
+    "shipping": 880.0000000000005
+   },
+   "error_ratio": {
+    "ad": 0.0,
+    "cart": 0.0,
+    "checkout": 0.0,
+    "currency": 0.0,
+    "email": 0.0,
+    "frontend": 0.0,
+    "image-provider": 0.0,
+    "payment": 0.0,
+    "product-catalog": 0.0,
+    "quote": 0.0,
+    "recommendation": 0.0,
+    "shipping": 0.0
+   },
+   "probe": {
+    "requests": 1698,
+    "non2xx": 0,
+    "p95": 0.10013184999999997
+   }
+  },
+  "sock-shop": {
+   "expected_families": {
+    "carts": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "carts-db": [
+     "cpu",
+     "mem"
+    ],
+    "catalogue": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "catalogue-db": [
+     "cpu",
+     "mem"
+    ],
+    "front-end": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "orders": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "orders-db": [
+     "cpu",
+     "mem"
+    ],
+    "payment": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "queue-master": [
+     "cpu",
+     "mem"
+    ],
+    "rabbitmq": [
+     "cpu",
+     "mem"
+    ],
+    "session-db": [
+     "cpu",
+     "mem"
+    ],
+    "shipping": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "user": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "user-db": [
+     "cpu",
+     "mem"
+    ]
+   },
+   "serving": [
+    "carts",
+    "catalogue",
+    "front-end",
+    "orders",
+    "payment",
+    "shipping",
+    "user"
+   ],
+   "p99_median": {
+    "carts": 24.92701111553641,
+    "catalogue": 15.919230769230765,
+    "front-end": 225.65040516719705,
+    "orders": 87.57692307692302,
+    "payment": 4.8759420289855075,
+    "shipping": 18.624999999999996,
+    "user": 42.620478381849225
+   },
+   "error_ratio": {
+    "carts": 0.0,
+    "catalogue": 0.0,
+    "front-end": 0.0,
+    "orders": 0.0,
+    "payment": 0.0,
+    "shipping": 0.0,
+    "user": 0.0
+   },
+   "probe": {
+    "requests": 1717,
+    "non2xx": 0,
+    "p95": 0.06465039999999997
+   }
+  },
+  "train-ticket": {
+   "expected_families": {
+    "ts-admin-basic-info-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-admin-order-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-admin-route-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-admin-travel-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-admin-user-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-assurance-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-auth-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-avatar-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-basic-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-cancel-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-config-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-consign-price-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-consign-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-contacts-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-delivery-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-execute-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-food-delivery-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-food-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-gateway-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-inside-payment-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-news-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-notification-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-order-other-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-order-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-payment-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-preserve-other-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-preserve-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-price-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-rebook-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-route-plan-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-route-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-seat-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-security-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-station-food-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-station-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-ticket-office-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-train-food-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-train-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-travel-plan-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-travel-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-travel2-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-ui-dashboard": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-user-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-verification-code-service": [
+     "cpu",
+     "mem",
+     "req",
+     "lat"
+    ],
+    "ts-voucher-service": [
+     "cpu",
+     "mem"
+    ],
+    "ts-wait-order-service": [
+     "cpu",
+     "mem"
+    ]
+   },
+   "serving": [
+    "ts-auth-service",
+    "ts-basic-service",
+    "ts-config-service",
+    "ts-gateway-service",
+    "ts-order-service",
+    "ts-price-service",
+    "ts-route-service",
+    "ts-seat-service",
+    "ts-station-service",
+    "ts-train-service",
+    "ts-travel-service",
+    "ts-ui-dashboard",
+    "ts-verification-code-service"
+   ],
+   "p99_median": {
+    "ts-auth-service": NaN,
+    "ts-basic-service": 97.6159420289855,
+    "ts-config-service": 20.244999999999976,
+    "ts-gateway-service": 233.54285714285723,
+    "ts-order-service": 9.561257035647273,
+    "ts-price-service": 12.681249999999903,
+    "ts-route-service": 48.49999999999997,
+    "ts-seat-service": 24.981424654777776,
+    "ts-station-service": 20.650000000000034,
+    "ts-train-service": 24.703125,
+    "ts-travel-service": 227.6022727272727,
+    "ts-ui-dashboard": 236.41071428571428,
+    "ts-verification-code-service": NaN
+   },
+   "error_ratio": {
+    "ts-auth-service": 0.0,
+    "ts-basic-service": 0.0,
+    "ts-config-service": 0.0,
+    "ts-gateway-service": 0.0,
+    "ts-order-service": 0.0,
+    "ts-price-service": 0.0,
+    "ts-route-service": 0.0,
+    "ts-seat-service": 0.0,
+    "ts-station-service": 0.0,
+    "ts-train-service": 0.0,
+    "ts-travel-service": 0.0,
+    "ts-ui-dashboard": 0.0,
+    "ts-verification-code-service": 0.0
+   },
+   "probe": {
+    "requests": 1718,
+    "non2xx": 0,
+    "p95": 0.0454936
+   }
+  }
+ }
+}

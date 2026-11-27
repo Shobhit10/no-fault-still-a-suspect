@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+*-env/
+.conda/
+
+# Credentials and cluster access (never commit)
+*.kubeconfig
+kubeconfig*
+.kube/
+.env
+.env.*
+*.pem
+*.key
+debug_pods.txt
+debug_pods.txt.*
+
+# Local configuration of the live harness (copy config.example.json)
+experiments/live/config.json
+
+# Outputs of the reproduction scripts and of local runs
+outputs/
+runs/
+
+# Third-party data downloaded locally (RCAEval telemetry; not redistributed)
+external/
+rcaeval_data/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/

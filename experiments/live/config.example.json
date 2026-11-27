@@ -1,0 +1,68 @@
+{
+ "_comment": "Deployment settings of the live harness. Copy to config.json and edit. Values are those of the paper's five open-source applications; namespaces must match your cluster. container: name of the application container ('{service}' is replaced by the service name). istio_reporter: 'source' if latency is measured at the caller (in-mesh load generator), 'destination' if every target reports its own inbound requests.",
+ "prometheus_url": "http://localhost:9090",
+ "probe_namespace": "rca-probe",
+ "probe_deployment": "rca-health-probe",
+ "systems": {
+  "boutique": {
+   "namespace": "boutique",
+   "services": ["adservice", "cartservice", "checkoutservice", "currencyservice", "emailservice", "frontend",
+                "paymentservice", "productcatalogservice", "recommendationservice", "redis-cart", "shippingservice"],
+   "container": "server",
+   "container_overrides": {"redis-cart": "redis", "loadgenerator": "main"},
+   "istio_reporter": "source",
+   "loadgen_deployment": "loadgenerator",
+   "fault_targets": ["currencyservice", "recommendationservice"],
+   "surge_factor": 8
+  },
+  "sock-shop": {
+   "namespace": "sock-shop",
+   "services": ["carts", "carts-db", "catalogue", "catalogue-db", "front-end", "orders", "orders-db", "payment",
+                "queue-master", "rabbitmq", "session-db", "shipping", "user", "user-db"],
+   "container": "{service}",
+   "istio_reporter": "source",
+   "loadgen_deployment": "loadgen-sockshop",
+   "fault_targets": ["catalogue", "front-end"],
+   "surge_factor": 24
+  },
+  "otel-demo": {
+   "namespace": "otel-demo",
+   "services": ["ad", "cart", "checkout", "currency", "email", "frontend", "image-provider", "payment",
+                "product-catalog", "quote", "recommendation", "shipping"],
+   "container": "{service}",
+   "istio_reporter": "destination",
+   "loadgen_deployment": "load-generator",
+   "fault_targets": ["recommendation", "product-catalog"],
+   "surge_factor": 8
+  },
+  "deathstarbench": {
+   "namespace": "deathstarbench",
+   "services": ["frontend", "geo", "profile", "rate", "recommendation", "reservation", "search", "user"],
+   "container": "hotel-reserv-{service}",
+   "istio_reporter": "destination",
+   "loadgen_deployment": "loadgen-dsb",
+   "fault_targets": ["search", "rate", "frontend"],
+   "surge_factor": 16
+  },
+  "train-ticket": {
+   "namespace": "train-ticket",
+   "services": ["ts-admin-basic-info-service", "ts-admin-order-service", "ts-admin-route-service",
+                "ts-admin-travel-service", "ts-admin-user-service", "ts-assurance-service", "ts-auth-service",
+                "ts-avatar-service", "ts-basic-service", "ts-cancel-service", "ts-config-service",
+                "ts-consign-price-service", "ts-consign-service", "ts-contacts-service", "ts-delivery-service",
+                "ts-execute-service", "ts-food-delivery-service", "ts-food-service", "ts-gateway-service",
+                "ts-inside-payment-service", "ts-news-service", "ts-notification-service",
+                "ts-order-other-service", "ts-order-service", "ts-payment-service", "ts-preserve-other-service",
+                "ts-preserve-service", "ts-price-service", "ts-rebook-service", "ts-route-plan-service",
+                "ts-route-service", "ts-seat-service", "ts-security-service", "ts-station-food-service",
+                "ts-station-service", "ts-ticket-office-service", "ts-train-food-service", "ts-train-service",
+                "ts-travel-plan-service", "ts-travel-service", "ts-travel2-service", "ts-ui-dashboard",
+                "ts-user-service", "ts-verification-code-service", "ts-voucher-service", "ts-wait-order-service"],
+   "container": "{service}",
+   "istio_reporter": "destination",
+   "loadgen_deployment": "loadgen-tt",
+   "fault_targets": [],
+   "surge_factor": 8
+  }
+ }
+}

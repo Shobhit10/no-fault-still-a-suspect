@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper below."
+title: "No Fault Still a Suspect: A Four-Outcome Evaluation of Metric Root Cause Analysis in Microservices (code and data)"
+type: software
+authors:
+  - family-names: Gupta
+    given-names: Shobhit
+    affiliation: "Shiv Nadar Institution of Eminence"
+    orcid: "https://orcid.org/0009-0007-9856-4902"
+  - family-names: Kumari
+    given-names: Suchi
+    affiliation: "Shiv Nadar Institution of Eminence"
+    orcid: "https://orcid.org/0000-0002-6748-5028"
+repository-code: "https://github.com/Shobhit10/no-fault-still-a-suspect"
+license:
+  - MIT
+  - CC-BY-4.0
+version: "1.0.0"
+keywords:
+  - root cause analysis
+  - microservices
+  - benchmarking
+  - selective prediction
+  - AIOps
+  - diagnostic interfaces
+preferred-citation:
+  type: conference-paper
+  title: "No Fault Still a Suspect: A Four-Outcome Evaluation of Metric Root Cause Analysis in Microservices"
+  authors:
+    - family-names: Gupta
+      given-names: Shobhit
+      affiliation: "Shiv Nadar Institution of Eminence"
+      orcid: "https://orcid.org/0009-0007-9856-4902"
+    - family-names: Kumari
+      given-names: Suchi
+      affiliation: "Shiv Nadar Institution of Eminence"
+      orcid: "https://orcid.org/0000-0002-6748-5028"
+  collection-title: "2027 International Conference on Information Networking (ICOIN)"
+  conference:
+    name: "International Conference on Information Networking (ICOIN 2027)"
+    city: "Nha Trang"
+    country: "VN"
+  publisher:
+    name: "IEEE"
+  month: 1
+  year: 2027
